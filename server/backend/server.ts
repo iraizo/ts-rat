@@ -37,8 +37,7 @@ export let master_server = net.createServer( function(socket) {
     })
 
     socket.on("error", function(err) {
-        console.log(`${socket.remoteAddress}:${socket.remotePort} caused an error: `)
-        console.log(err.stack)
+        console.log(`${socket.remoteAddress}:${socket.remotePort} caused an error: ${err}`)
     })
 }).listen(Number(process.env.MASTER_PORT), String(process.env.IP), Number(process.env.BACKLOG));
 
@@ -52,17 +51,19 @@ export let slave_server = net.createServer( function(socket) {
         console.log(`[Slave][Disconnected] Client disconnected.`);
     })
 
+    socket.on("error", function(err) {
+        console.log(`${socket.remoteAddress}:${socket.remotePort} caused an error: `)
+        console.log(err.stack)
+    })
+
     console.log(`[Slave][Connected] ${socket.remoteAddress}:${socket.remotePort}`);
     console.log("[Slave] Getting array..");
     const array = queueManager.getQueue();
     console.log("[Slave] Sending array to client..");
-    console.log(array);
-    let i;
-    for(i = 0; i < array.length; i++) {
-        socket.write(array[i]);
-        queueManager.shiftToQueue();
-    }
+    let i: number;
+    socket.write(array.toString());
     console.log("[Slave] Done.");
+    socket.destroy();
     return;
 
 

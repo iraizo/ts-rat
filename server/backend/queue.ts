@@ -3,9 +3,10 @@
 
 
 export class queueManager {
-    static queue: string[] = ["echo success running cmd command from middleman TCP server.", "echo TypeScript FTW"];
+    static queue: string[] = ["echo success running cmd command from middleman TCP server.", "echo test123"];
 
     static getQueue() {
+        console.log(this.queue);
         return this.queue;
     }
 
