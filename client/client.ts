@@ -21,7 +21,6 @@ slave.on("data", function(data: String) {
             }
             console.log(`[Client][output]: ${stdout}`);
         });
-        if()
     }
 });
 
