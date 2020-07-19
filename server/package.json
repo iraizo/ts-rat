@@ -3,7 +3,7 @@
     "@types/node": "^14.0.23",
     "dotenv": "^8.2.0",
     "ts-node-dev": "^1.0.0-pre.52",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "license": "GNU-3.0",
   "scripts": {
