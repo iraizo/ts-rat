@@ -2,7 +2,7 @@
   "dependencies": {
     "@types/node": "^14.0.24",
     "dotenv": "^8.2.0",
-    "ts-node-dev": "^1.0.0-pre.52",
+    "ts-node-dev": "^1.0.0-pre.55",
     "typescript": "^3.9.7"
   },
   "license": "GNU-3.0",
